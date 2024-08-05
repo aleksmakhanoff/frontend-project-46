@@ -16,22 +16,57 @@ const jsonData2 = parse(fs.readFileSync(jsonFile2, 'utf-8'), 'json');
 const yamlData1 = parse(fs.readFileSync(yamlFile1, 'utf-8'), 'yaml');
 const yamlData2 = parse(fs.readFileSync(yamlFile2, 'utf-8'), 'yaml');
 
-const expectedOutputJson = `{
-  - follow: false
-  + follow: undefined
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
+const expectedOutput = `{
+    common: {
+      + follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+        setting6: {
+            doge: {
+              - wow: 
+              + wow: so much
+            }
+            key: value
+          + ops: vops
+        }
+    }
+    group1: {
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+            key: value
+        }
+      + nest: str
+    }
+  - group2: {
+        abc: 12345
+        deep: {
+            id: 45
+        }
+    }
+  + group3: {
+        deep: {
+            id: {
+                number: 45
+            }
+        }
+        fee: 100500
+    }
 }`;
 
 test('gendiff with JSON files', () => {
   const result = genDiff(jsonData1, jsonData2);
-  expect(result).toEqual(expectedOutputJson);
+  expect(result).toEqual(expectedOutput);
 });
 
 test('gendiff with YAML files', () => {
   const result = genDiff(yamlData1, yamlData2);
-  expect(result).toEqual(expectedOutputJson);
+  expect(result).toEqual(expectedOutput);
 });
