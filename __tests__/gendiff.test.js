@@ -16,21 +16,30 @@ const expectedJsonOutput = fs.readFileSync(getFixturePath('expectedJson.txt'), '
 
 test('gendiff with stylish format (JSON)', () => {
   const result = genDiff(jsonFile1, jsonFile2, 'stylish');
-  console.log('Result:', result);
-  console.log('Expect:', expectedStylishOutput);
   expect(result).toEqual(expectedStylishOutput);
 });
 
 test('gendiff with plain format (JSON)', () => {
   const result = genDiff(jsonFile1, jsonFile2, 'plain');
-  console.log('Result:', result);
-  console.log('Expect:', expectedPlainOutput);
   expect(result).toEqual(expectedPlainOutput);
 });
 
 test('gendiff with json format (JSON)', () => {
   const result = genDiff(jsonFile1, jsonFile2, 'json');
-  console.log('Result:', result);
-  console.log('Expect:', expectedJsonOutput);
+  expect(result).toEqual(expectedJsonOutput);
+});
+
+test('gendiff with stylish format (YAML)', () => {
+  const result = genDiff(yamlFile1, yamlFile2, 'stylish');
+  expect(result).toEqual(expectedStylishOutput);
+});
+
+test('gendiff with plain format (YAML)', () => {
+  const result = genDiff(yamlFile1, yamlFile2, 'plain');
+  expect(result).toEqual(expectedPlainOutput);
+});
+
+test('gendiff with json format (YAML)', () => {
+  const result = genDiff(yamlFile1, yamlFile2, 'json');
   expect(result).toEqual(expectedJsonOutput);
 });

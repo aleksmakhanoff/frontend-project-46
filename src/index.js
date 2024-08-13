@@ -1,10 +1,7 @@
-import buildDiffTree from './buildDiffTree.js';
 import path from 'path';
 import fs from 'fs';
-import parse from '../src/parsers.js';
-import json from './formatters/json.js';
-import stylish from './formatters/stylish.js';
-import plain from './formatters/plain.js';
+import buildDiffTree from './buildDiffTree.js';
+import parse from './parsers.js';
 import makeFormat from './formatters/index.js';
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
