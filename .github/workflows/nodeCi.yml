@@ -1,23 +1,37 @@
-# .github/workflows/ci.yml
-name: CI
+name: Node CI
 
-on: [push, pull_request]
+on: 
+  - push
+
+env:
+  CI: true
 
 jobs:
-  test:
+  build: 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [18.x]
+      
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install version Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
-      - run: npm install
-      - run: npm test -- --coverage
-      - name: Install Code Climate test-reporter
-        run: npm install -g codeclimate-test-reporter
-      - name: Upload coverage to Code Climate
-        run: codeclimate-test-reporter < coverage/lcov-report/lcov.info
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: make install
+      - name: Lint application
+        run: make lint    
+      - name: Test application
+        run: make test
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v6.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
