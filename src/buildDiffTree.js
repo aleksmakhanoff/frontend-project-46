@@ -1,5 +1,7 @@
+import _ from 'lodash';
+
 const buildDiffTree = (data1, data2) => {
-  const allKeys = Object.keys({ ...data1, ...data2 }).sort();
+  const allKeys = _.sortBy(Object.keys({ ...data1, ...data2 }));
 
   return allKeys.map((key) => {
     switch (true) {
