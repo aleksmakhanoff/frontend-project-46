@@ -8,6 +8,7 @@
     "gendiff": "src/index.js"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "jest"
   },
   "author": "Aleksandr M.",
