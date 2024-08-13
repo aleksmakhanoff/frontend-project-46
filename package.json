@@ -3,9 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/aleksmakhanoff/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/aleksmakhanoff/frontend-project-46/actions)",
-  "main": "bin/gendiff.js",
+  "main": "src/index.js",
   "bin": {
-    "gendiff": "src/index.js"
+    "gendiff": "bin/gendiff.js"
   },
   "scripts": {
     "lint": "eslint .",
