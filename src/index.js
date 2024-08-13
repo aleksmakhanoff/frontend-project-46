@@ -1,8 +1,11 @@
-import stylish from './formatters/stylish.js';
 import buildDiffTree from './buildDiffTree.js';
 import path from 'path';
 import fs from 'fs';
 import parse from '../src/parsers.js';
+import json from './formatters/json.js';
+import stylish from './formatters/stylish.js';
+import plain from './formatters/plain.js';
+import makeFormat from './formatters/index.js';
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const absolutePath1 = path.resolve(filepath1);
@@ -15,8 +18,7 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const data2 = parse(fs.readFileSync(absolutePath2, 'utf-8'), extname2);
 
   const diffTree = buildDiffTree(data1, data2);
-  console.log(JSON.stringify(diffTree, null, 2));
-  return stylish(diffTree);
+  return makeFormat(diffTree, format);
 };
 
 export default genDiff;
