@@ -3,41 +3,43 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/12d2b99b06c45017c76f/maintainability)](https://codeclimate.com/github/aleksmakhanoff/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/12d2b99b06c45017c76f/test_coverage)](https://codeclimate.com/github/aleksmakhanoff/frontend-project-46/test_coverage)
 
-**Описание проекта:**
+**Project Description:**
 
-Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменений в конфигурационных файлах.
+Difference Calculator is a program that determines the difference between two data structures. This is a popular task for which there are many online services, for example http://www.jsondiff.com/. Such a mechanism is used when outputting tests or automatically tracking changes in configuration files.
 
-**Возможности утилиты:**
+**Performance of the utility:**
 
-- Поддержка разных входных форматов: yaml, json
-- Генерация отчета в виде plain, stylish и json
+- Support of different input formats: yaml, json
+- Report generation in plain, stylish and json formats
 
-**Минимальные требования:**
+**Minimum requirements:**
 
-- Node.js версия v20.12.1 (используемая при работе над проектом);
+- Node.js version v20.12.1 (used when working on the project);
 
-**Инструкция по установке и запуску:**
+**Installation and startup instructions:**
 
-- Клонировать репозиторий с проектом, с помощью команды: git clone;
-- Перейти в директорию с проектом, с помощью команды: cd <нужная директория>;
-- Установить зависимости проекта, с помощью команды: npm ci (или make install);
-- Установить пакет локально, с помощью команды: npm link;
-- Запускать программу сравнений с помощью терминала через команду: gendiff;
+- Clone the repository with the project, using the command: git clone;
+- Go to the project directory, using the command: cd <necessary directory>;
+- Install the project dependencies, using the command: npm ci (or make install);
+- Install the package locally, using the command: npm link;
+- Run the comparison program from the terminal using the command: gendiff;
 
-**Примеры работы программы:**
+Translated with DeepL.com (free version)
 
-Вывод справочной информации:
+**Examples of program operation:**
+
+Output of reference information:
 
 [![asciicast](https://asciinema.org/a/672237.svg)](https://asciinema.org/a/672237)
 
-Вывод формата stylish:
+Format output stylish:
 
 [![asciicast](https://asciinema.org/a/672238.svg)](https://asciinema.org/a/672238)
 
-Вывод формата plain:
+Format output plain:
 
 [![asciicast](https://asciinema.org/a/672239.svg)](https://asciinema.org/a/672239)
 
-Вывод формата json:
+Format output json:
 
 [![asciicast](https://asciinema.org/a/672240.svg)](https://asciinema.org/a/672240)
