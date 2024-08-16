@@ -1,7 +1,9 @@
+import _ from 'lodash';
+
 const getIndent = (depth) => ' '.repeat(depth * 4);
 
 const stringify = (value, depth) => {
-  if (typeof value !== 'object' || value === null) {
+  if (!_.isPlainObject(value)) {
     return String(value);
   }
 
